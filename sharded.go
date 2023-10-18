@@ -82,6 +82,10 @@ func (sc *shardedCache) Get(k string) (interface{}, bool) {
 	return sc.bucket(k).Get(k)
 }
 
+func (sc *shardedCache) GetOrStore(k string, v interface{}, d time.Duration) (interface{}, bool) {
+	return sc.bucket(k).GetOrStore(k, v, d)
+}
+
 func (sc *shardedCache) Increment(k string, n int64) error {
 	return sc.bucket(k).Increment(k, n)
 }
